@@ -40,7 +40,9 @@ if (strval($rowid)!="") {
 	//글의 상세정보 가져오기
 	$sql = "select * from board where rowid='$rowid' ";
 	$res = mysql_query($sql);
-	if ($res) $rs = mysql_fetch_array($res);
+	if ($res) {
+        $rs = mysql_fetch_array($res);
+    }
 }
 
 if (!empty($rs['rowid'])) {//상세내용이 있으면 출력합니다.
@@ -190,7 +192,7 @@ if ($res) {
     <td>
         <table border="0" cellpadding="0" cellspacing="0">
           <tr valign="bottom"> 
-            <td style="color:#333333;font-size:12px;"><span style="font-weight:bold;">Go 
+            <span style="font-weight:bold;">Go 
               to Page:</span> &nbsp; 
               <?php if ($startpage>1) { ?>
               <a style="cursor:hand;color:#333333;font-weight:;font-size:12px;" onClick="search_form.startpage.value='1'; search_form.page.value='1';search_form.submit();">◀</a> 
@@ -215,7 +217,7 @@ if ($res) {
               <a style="cursor:hand;color:#333333;font-weight:;font-size:12px;" onClick="search_form.startpage.value='<?php echo $startpage+$ten;?>'; search_form.page.value='<?php echo $startpage+$ten;?>';search_form.submit();">Next</a> 
               <a style="cursor:hand;color:#333333;font-weight:;font-size:12px;" onClick="search_form.startpage.value='<?php echo $totpage;?>'; search_form.page.value='<?php echo $totpage;?>';search_form.submit();">▶</a> 
               <?php }//if ?>
-              &nbsp;</td>
+              &nbsp;
           </tr>
         </table>
     </td>
